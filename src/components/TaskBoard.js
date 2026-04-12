@@ -3,7 +3,7 @@
 import {useState, useEffect } from 'react';
 
 import TaskList from './TaskList';
-import TaskForm from './TaskForm';
+import AddTaskForm from './AddTaskForm';
 import TaskStats from './TaskStats';
 
 export default function TaskBoard() {
