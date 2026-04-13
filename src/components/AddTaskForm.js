@@ -18,9 +18,9 @@ export default function AddTaskForm({ onAdd }) {
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
                 placeholder="Add a new task..."
-                className="flex-1 p-2 border rounded-l text black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 p-3 rounded-xl border-2 border-black text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button type="submit" className="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600">
+            <button type="submit" className="bg-blue-500 text-white p-3 rounded-r hover:bg-blue-600">
                 Add
             </button>
         </form>

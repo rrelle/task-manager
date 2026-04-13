@@ -45,13 +45,25 @@ const completed = tasks.filter(t => t.done).length;
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-600 to-purple-500 flex items-center justify-center">
             
-            <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
+            <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md border-4 border-gray-300">
             <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">Task Manager</h1>
             <AddTaskForm onAdd={handleAdd} />
-            <div className="flex gap-4 mt-4">
-                <button onClick={() => setFilter('all')}>All</button>
-                <button onClick={() => setFilter('active')}>Active</button>
-                <button onClick={() => setFilter('completed')}>Completed</button>
+            <div className="flex gap-2 mb-4 justify-center">
+                <button onClick={() => setFilter('all')}
+                    className="bg-gray-300 text-gray-700 p-2 rounded hover:bg-gray-400"
+                >
+                    All
+                </button>
+                <button onClick={() => setFilter('active')}
+                    className="bg-gray-300 text-gray-700 p-2 rounded hover:bg-gray-400"
+                >
+                    Active
+                </button>
+                <button onClick={() => setFilter('completed')}
+                    className="bg-gray-300 text-gray-700 p-2 rounded hover:bg-gray-400"
+                >
+                    Completed
+                </button>
             </div>
             <TaskList 
                 tasks={filteredTasks}
