@@ -15,9 +15,10 @@ A simple and modern task management application built with Next.js and Tailwind 
 - Tailwind CSS
 - JavaScript
 
-## 📸 Preview
-(Add a screenshot here later)
-
+## AI Usage Log
+- Used AI to help structure components
+- Learned how React props work
+- Fixed errors related to undefined variables
 ## 📦 Installation
 
 1. Clone the repository:

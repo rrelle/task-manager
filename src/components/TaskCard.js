@@ -7,3 +7,4 @@ export default function TaskCard({ id, title, done, onDelete, onToggle }) {
     <button onClick={() => onDelete(id)}>Delete</button>
     </div>
 }
+// Conditional styling: if task is completed, apply line-through style.

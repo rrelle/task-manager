@@ -1,4 +1,10 @@
+// COMPONENT: TaskBoard
+// PURPOSE: Main component that manages all task data and logic.
+// TYPE: Client Component because it uses useState and useEffect.
+// It passes data down to child components and receives actions back via props.
 'use client'
+// State that stores all tasks.
+// We use state so React can re-render when tasks change.
 
 import {useState, useEffect} from 'react';
 
@@ -15,15 +21,26 @@ export default function TaskBoard() {
         return [];
     });
     const [filter, setFilter] = useState('all');
+// useEffect saves tasks to localStorage whenever tasks change.
+// This allows tasks to persist even after page refresh.
 
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }, [tasks]);
 
+// Adds a new task using a unique ID.
+// We use spread operator to create a NEW array instead of mutating the old one.
+function handleAdd(title) {
+  setTasks([...tasks, { id: crypto.randomUUID(), title, done: false }]);
+}
+
     function handleAdd(task) {
         setTasks([...tasks, {id: crypto.randomUUID(), title: task, done: false}]);
     }
     
+
+    // Removes a task from the list by filtering it out.
+// filter() creates a new array without mutating the original.
     function handleDelete(id) {
         setTasks(tasks.filter(task => task.id !== id));
     }
@@ -32,6 +49,8 @@ export default function TaskBoard() {
         setTasks(tasks.map(t => t.id === id ? {...t, done: !t.done} : t));
     }
     
+
+    // Removes all completed tasks at once by filtering out tasks marked as done.
     function handleClear() {
         setTasks(tasks.filter(t => !t.done));
     }
@@ -41,6 +60,10 @@ export default function TaskBoard() {
         if (filter === 'completed') return task.done;
         return true;
     });
+
+
+    // Calculates the number of completed tasks dynamically.
+// This is derived instead of stored to avoid duplicated state.
 const completed = tasks.filter(t => t.done).length;
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-600 to-purple-500 flex items-center justify-center">
@@ -59,6 +82,9 @@ const completed = tasks.filter(t => t.done).length;
                 >
                     Active
                 </button>
+                // COMPONENT: AddTaskForm
+// PURPOSE: Handles user input and sends new tasks to the parent component.
+// Uses a controlled input where the value is stored in state.
                 <button onClick={() => setFilter('completed')}
                     className="bg-gray-300 text-gray-700 p-2 rounded hover:bg-gray-400"
                 >

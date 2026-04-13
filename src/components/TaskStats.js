@@ -1,3 +1,7 @@
+// COMPONENT: TaskStats
+// PURPOSE: Displays task statistics and allows clearing completed tasks.
+// Receives data from TaskBoard via props.
+
 export default function TaskStats({ total, completed, onClear }) {
     return (
         <div className="mt-4 bg-black p-4 rounded-xl shadow-lg text-center">
