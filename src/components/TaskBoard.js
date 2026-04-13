@@ -64,6 +64,9 @@ function handleAdd(title) {
 
     // Calculates the number of completed tasks dynamically.
 // This is derived instead of stored to avoid duplicated state.
+// COMPONENT: AddTaskForm
+// PURPOSE: Handles user input and sends new tasks to TaskBoard.
+// Uses a controlled input (value is stored in state).
 const completed = tasks.filter(t => t.done).length;
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-600 to-purple-500 flex items-center justify-center">
@@ -82,9 +85,6 @@ const completed = tasks.filter(t => t.done).length;
                 >
                     Active
                 </button>
-                // COMPONENT: AddTaskForm
-// PURPOSE: Handles user input and sends new tasks to the parent component.
-// Uses a controlled input where the value is stored in state.
                 <button onClick={() => setFilter('completed')}
                     className="bg-gray-300 text-gray-700 p-2 rounded hover:bg-gray-400"
                 >
